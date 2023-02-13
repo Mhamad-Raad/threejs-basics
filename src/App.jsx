@@ -1,4 +1,4 @@
-import { Canvas } from '@react-three/fiber'
+import { Canvas, useLoader } from '@react-three/fiber'
 import Polyhedron from './components/Polyhedron'
 import * as THREE from 'three'
 import { Stats, OrbitControls } from '@react-three/drei'
@@ -106,6 +106,7 @@ function Lights() {
 }
 
 export default function App() {
+  const texture = useLoader(THREE.TextureLoader, './earth.jpg')
   return (
     <Canvas camera={{ position: [4, 4, 1.5] }}>
       <Lights />
@@ -133,8 +134,9 @@ export default function App() {
         position={[3, 1, 0]}
         material={
           new THREE.MeshStandardMaterial({
-            color: 0xff0033,
-            flatShading: true
+            // color: 0xff0033,
+            // flatShading: true,
+            map: texture
           })
         }
       />

@@ -5,13 +5,13 @@ export default function Polyhedron(props) {
   const ref = useRef()
 
   useFrame((_, delta) => {
-    ref.current.rotation.x += 0.2 * delta
+    // ref.current.rotation.x += 0.2 * delta
     ref.current.rotation.y += 0.05 * delta
   })
 
   return (
     <mesh {...props} ref={ref}>
-      <icosahedronGeometry args={[1, 1]} />
+      <icosahedronGeometry args={[1, 5]} />
     </mesh>
   )
 }
